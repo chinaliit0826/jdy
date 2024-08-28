@@ -13,7 +13,7 @@ left_column, col1, col2, col3, right_column = st.columns(5)
 left_column.write("")
 
 # 在右侧列中显示图像
-right_column.image('/workspaces/jdy/logo.png', caption='', width=100)
+right_column.image('logo.png', caption='', width=100)
 
 # Title
 st.write("<p style='font-size: 20px;'>Machine Learning Models Can Identify Patients at High-Risk of Coronary Heart Disease and with Severe Disease using an Immunoglobulin Light Chain-Based Index</p>", unsafe_allow_html=True)
@@ -36,8 +36,9 @@ l = st.number_input('CK-MB', min_value=0.00, max_value=100.00, value=12.70)
 if st.button("Submit"):
     
     # Unpickle classifier    
-    dirs = '/workspaces/jdy'
-    mm = joblib.load(dirs + '/XGBoost.pkl')
+    # dirs = '/workspaces/jdy'
+    # mm = joblib.load(dirs + '/XGBoost.pkl')
+    mm = joblib.load('XGBoost.pkl')
 
     # Store inputs into dataframe
     X = pd.DataFrame([[a, b, c, d, e, f, g, h, i, j, k, l]], 
